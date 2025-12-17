@@ -5,8 +5,13 @@ janela.geometry("500x300")
 janela.title("Tela de Login")
 # --- FUNÇÕES DE NAVEGAÇÃO ---
 def ir_para_sucesso():
-    frame_login.pack_forget()  # Esconde a tela de login
-    frame_sucesso.pack(pady=20, padx=20, fill="both", expand=True) # Mostra a de sucesso
+    if email.get() == "admin@email.com" and senha.get() =="1234":
+        frame_login.pack_forget()  # Esconde a tela de login
+        frame_sucesso.pack(pady=20, padx=20, fill="both", expand=True) # Mostra a de sucesso
+    else:
+        frame_login.pack_forget()
+        frame_incorreto.pack(pady=20, padx=20, fill="both", expand=True)
+        
 
 def voltar_para_login():
     frame_sucesso.pack_forget() # Esconde a tela de sucesso
@@ -15,6 +20,12 @@ def voltar_para_login():
 # --- TELA DE LOGIN (FRAME 1) ---f
 frame_login = customtkinter.CTkFrame(janela)
 frame_login.pack(pady=20, padx=20, fill="both", expand=True)
+
+#Criando o frame de erro de Login
+frame_incorreto = customtkinter.CTkFrame(janela)
+
+texto_incorreto = customtkinter.CTkLabel(frame_incorreto, text="Login ou senha incorretos!", text_color="red")
+texto_incorreto.pack(pady=20)
 
 texto = customtkinter.CTkLabel(frame_login, text="Fazer Login")
 texto.pack(pady=10)
