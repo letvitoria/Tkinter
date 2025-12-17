@@ -14,7 +14,15 @@ def ir_para_sucesso():
         
 
 def voltar_para_login():
-    frame_sucesso.pack_forget() # Esconde a tela de sucesso
+    # Esconde possíveis telas (sucesso ou erro) antes de voltar ao login
+    try:
+        frame_sucesso.pack_forget()
+    except Exception:
+        pass
+    try:
+        frame_incorreto.pack_forget()
+    except Exception:
+        pass
     frame_login.pack(pady=20, padx=20, fill="both", expand=True) # Mostra a de login
 
 # --- TELA DE LOGIN (FRAME 1)
@@ -26,6 +34,8 @@ frame_incorreto = customtkinter.CTkFrame(janela)
 
 texto_incorreto = customtkinter.CTkLabel(frame_incorreto, text="Login ou senha incorretos!", text_color="red")
 texto_incorreto.pack(pady=20)
+botao_voltar = customtkinter.CTkButton(frame_incorreto, text="Voltar", command=voltar_para_login)
+botao_voltar.pack(pady=10)
 
 texto = customtkinter.CTkLabel(frame_login, text="Fazer Login")
 texto.pack(pady=10)
