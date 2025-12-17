@@ -2,6 +2,7 @@ import tkinter as tk
 
 janela= tk.Tk()
 janela.geometry("500x300")
+janela.config(bg="#66202F")
 
 #Dar funcionalidade para o butão
 def clique():
