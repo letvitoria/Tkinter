@@ -17,7 +17,7 @@ def voltar_para_login():
     frame_sucesso.pack_forget() # Esconde a tela de sucesso
     frame_login.pack(pady=20, padx=20, fill="both", expand=True) # Mostra a de login
 
-# --- TELA DE LOGIN (FRAME 1) ---f
+# --- TELA DE LOGIN (FRAME 1)
 frame_login = customtkinter.CTkFrame(janela)
 frame_login.pack(pady=20, padx=20, fill="both", expand=True)
 
